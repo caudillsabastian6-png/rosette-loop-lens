@@ -41,9 +41,16 @@ credits burned. Work that isn't recorded didn't happen (steering: Total record).
   public line verbatim.
 - `PYTHONPATH=src python3 -c "import rosette_loop_lens, ...chassis, ...gauntlet,
   ...nightshift"` → "import OK 0.0.0": the package tree imports cleanly.
-- License "renders on the repo page" is a GitHub-side render; MIT in a root
-  `LICENSE` file is the standard detectable form. The fresh-clone check of
-  `/.kiro` presence is confirmable after push on the branch.
+- Fresh-clone check RAN: cloned branch `task-1-repo-scaffold` into a temp dir;
+  `/.kiro` present (steering.md + specs), root `LICENSE` (MIT) present, README
+  public line present, Task 1 box checked. Clone then removed.
+- License "renders on the repo page": MIT in a root `LICENSE` file is the
+  standard GitHub-detectable form. HONEST NOTE: `gh api .../license` returns
+  404 right now because GitHub detects the license on the DEFAULT branch
+  (`main`), and the LICENSE currently lives only on the `task-1-repo-scaffold`
+  branch (branch policy forbids committing to `main` directly). It will render
+  on the repo page once this branch is merged to `main`. The file itself is
+  correct and in the right location — verified by fresh clone.
 
 **Scope notes / fences honored:**
 - No feature implemented; BRZ untouched (R13 freeze respected).
