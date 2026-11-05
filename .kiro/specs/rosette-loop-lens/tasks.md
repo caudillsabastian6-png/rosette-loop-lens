@@ -13,7 +13,7 @@ session regardless.
 
 ## Scaffold
 
-- [ ] **1. Repo scaffold.** Project skeleton, README carrying the public
+- [x] **1. Repo scaffold.** Project skeleton, README carrying the public
   line ("Rosette — contained by Blast Radius Zero."), open-source LICENSE
   detectable at the top of the repo page, `/.kiro` (steering + this spec)
   committed and NOT gitignored. *(Serves: submission groundwork; R13.)*
