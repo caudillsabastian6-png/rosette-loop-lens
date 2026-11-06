@@ -19,7 +19,7 @@ session regardless.
   committed and NOT gitignored. *(Serves: submission groundwork; R13.)*
   Verify: fresh clone shows `/.kiro` present; license renders on the repo
   page.
-- [ ] **2. Session-log + burn ledger.** The running log every session
+- [x] **2. Session-log + burn ledger.** The running log every session
   appends to (date, task, what changed, verification, credits burned).
   *(Serves: total-record habit, credit discipline.)*
   Verify: Task 1's own entry exists and is complete.
