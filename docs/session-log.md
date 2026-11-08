@@ -60,3 +60,54 @@ credits burned. Work that isn't recorded didn't happen (steering: Total record).
   formalized in Task 2's burn ledger).
 
 **Credits burned:** not separately metered this session; ledger starts in Task 2.
+
+---
+
+## 2026-11-08 — BRZ expansion night: fusion lane scaffolds (legs 2, 3, 4, 6)
+
+**Trigger:** owner order Nov 8, 2026 ~1:33 PM ET — "Queue the full expanded
+package for 6 PM" (the LabLab freeze lift). Branch
+`fusion-expansion-2026-11-08` off `main` (d4e4547). Local commit only —
+not pushed, not merged; PR #1 untouched; `tasks.md` boxes for Tasks
+4-14 stay UNCHECKED (these are scaffolds/spikes under the owner's
+expansion order, not the per-task Kiro build sessions).
+
+**What changed (scaffold implementations + tests):**
+- Leg 4 (Glass Box receipts, pulled forward from Phase 3): receipt
+  format v1 defined in `chassis/receipt_writer.py` (kind, lane,
+  thresholds, exemplars as identity+score only, tells fired, reader
+  identity-only report, gate decision, verdict in the exact three-lane
+  vocabulary, verification block) with validation that rejects
+  crown-jewel data at emission; `chassis/run_store.py` append-only JSONL.
+- Leg 2 (Fake Gauntlet, fusion §4.2): `gauntlet/` registry (per-lane
+  registration for printed_pair_sheet / crew_manufactured_digital /
+  crew_manufactured_cardstock; designated-fake check mandatory at
+  intake; physical core is never a lane; non-manufactured material
+  refused), volley runner (one receipt per item), gate evaluator (any
+  genuine-side escape or forbidden output > 0 fails the build; lanes
+  scored separately), scoreboard re-derived from the run store with the
+  `simulated/manufactured` honesty label.
+- Leg 3 (Night Shift + Rewind, fusion §4.4): `nightshift/` snapshotter
+  (SHA-256 snapshot + verify before any job may start; restore
+  hash-verified), job registry (jobs receive a staging directory only —
+  no write path to shared truth), promotion gate (designated-fake check
+  -> hash verify -> examiner read; any failure aborts receipted with
+  shared state untouched; promotions name their snapshot and verify
+  post-write).
+- Leg 6 (Home Base contained-seat prototype, Nov 6 addendum): new
+  `seats/` package — one acting seat in a disposable jailed workspace,
+  secret-shaped env vars refused at seating, env allowlist, Pocket Gate
+  (proposals pend; the seat cannot approve its own proposal; only
+  externally approved proposals execute, each receipted as a
+  `seat_action` Glass Box receipt). Local/VM-side proof only; no G1
+  service touched.
+
+**How it was verified:** `python3 -m unittest discover -s tests` —
+26 tests, all passing, covering: registry refusals, lane separation,
+escape/forbidden-output gate failures, staging-only jobs, rewind
+restore + corrupt-snapshot refusal, all three promotion aborts,
+receipt vocabulary/jewel/reader-vote rejection + replay, seat jail,
+secret refusal, and Pocket Gate self-approval refusal.
+
+**Credits burned:** 0 Kiro credits (local work only; the Task 3 Kiro
+session is leg 1 of the same night and is recorded separately).
