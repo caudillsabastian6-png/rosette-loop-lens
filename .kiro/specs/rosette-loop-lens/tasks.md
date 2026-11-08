@@ -26,7 +26,7 @@ session regardless.
 
 ## Shared chassis (build once — R1, R9, R10)
 
-- [ ] **3. Chassis inventory (read-only).** After the freeze lifts: survey
+- [x] **3. Chassis inventory (read-only).** After the freeze lifts: survey
   the BRZ chassis as-built (surfaces, gate, run store, frozen-core list per
   the Nov 5 autopsy) and write the adapter contract this project builds
   against. Modify nothing on the BRZ side. *(Serves: R1, R13.)*
